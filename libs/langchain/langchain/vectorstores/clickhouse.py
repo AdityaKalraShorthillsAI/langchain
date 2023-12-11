@@ -6,10 +6,10 @@ from hashlib import sha1
 from threading import Thread
 from typing import Any, Dict, Iterable, List, Optional, Tuple, Union
 
-from langchain.docstore.document import Document
-from langchain.pydantic_v1 import BaseSettings
-from langchain.schema.embeddings import Embeddings
-from langchain.schema.vectorstore import VectorStore
+from langchain_core.documents import Document
+from langchain_core.embeddings import Embeddings
+from langchain_core.pydantic_v1 import BaseSettings
+from langchain_core.vectorstores import VectorStore
 
 logger = logging.getLogger()
 
@@ -410,7 +410,7 @@ CREATE TABLE IF NOT EXISTS {self.config.database}.{self.config.table}(
                   alone. The default name for it is `metadata`.
 
         Returns:
-            List[Document]: List of (Document, similarity)
+            List[Document]: List of documents
         """
         q_str = self._build_query_sql(embedding, k, where_str)
         try:
@@ -442,7 +442,7 @@ CREATE TABLE IF NOT EXISTS {self.config.database}.{self.config.table}(
                   alone. The default name for it is `metadata`.
 
         Returns:
-            List[Document]: List of documents
+            List[Document]: List of (Document, similarity)
         """
         q_str = self._build_query_sql(
             self.embedding_function.embed_query(query), k, where_str

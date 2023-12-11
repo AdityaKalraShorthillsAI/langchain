@@ -6,8 +6,6 @@
 const { ProvidePlugin } = require("webpack");
 const path = require("path");
 
-const snippetsPath = path.resolve(__dirname, "snippets");
-
 const baseLightCodeBlockTheme = require("prism-react-renderer/themes/vsLight");
 const baseDarkCodeBlockTheme = require("prism-react-renderer/themes/vsDark");
 
@@ -28,6 +26,11 @@ const config = {
   onBrokenLinks: "warn",
   onBrokenMarkdownLinks: "throw",
 
+  themes: ["@docusaurus/theme-mermaid"],
+  markdown: {
+    mermaid: true,
+  },
+
   plugins: [
     () => ({
       name: "custom-webpack-config",
@@ -41,9 +44,6 @@ const config = {
           fallback: {
             path: false,
             url: false,
-          },
-          alias: {
-            "@snippets": snippetsPath,
           },
         },
         module: {
@@ -165,28 +165,95 @@ const config = {
             label: "Integrations",
           },
           {
-            to: "https://api.python.langchain.com",
+            type: "docSidebar",
+            position: "left",
+            sidebarId: "guides",
+            label: "Guides",
+          },
+          {
+            href: "https://api.python.langchain.com/en/stable/api_reference.html",
             label: "API",
             position: "left",
           },
           {
-            to: "/docs/community",
-            label: "Community",
+            type: "dropdown",
+            label: "More",
             position: "left",
+            items: [
+              {
+                type: "docSidebar",
+                sidebarId: "templates",
+                label: "Templates",
+              },
+              {
+                to: "/docs/community",
+                label: "Community",
+              },
+              {
+                to: "/docs/contributing",
+                label: "Developer's guide",
+              },
+              {
+                to: "/docs/additional_resources/dependents",
+                label: "Dependents",
+              },
+              {
+                label: "Integrations Hub",
+                href: "https://integrations.langchain.com/",
+              },
+              {
+                to: "/docs/additional_resources/tutorials",
+                label: "Tutorials"
+              },
+              {
+                label: "Cookbooks",
+                href: "https://github.com/langchain-ai/langchain/blob/master/cookbook/README.md"
+              },
+              {
+                to: "/docs/additional_resources/youtube",
+                label: "YouTube videos"
+              },
+              { label: "Gallery", href: "https://github.com/kyrolabs/awesome-langchain" }
+            ]
           },
           {
-            to: "https://chat.langchain.com",
-            label: "Chat our docs",
+            type: "dropdown",
+            label: "🦜️🔗",
             position: "right",
+            items: [
+              {
+                href: "https://smith.langchain.com",
+                label: "LangSmith",
+              },
+              {
+                href: "https://docs.smith.langchain.com/",
+                label: "LangSmith Docs",
+              },
+              {
+                href: "https://github.com/langchain-ai/langserve",
+                label: "LangServe GitHub",
+              },
+              {
+                href: "https://github.com/langchain-ai/langchain/tree/master/templates",
+                label: "Templates GitHub",
+              },
+              {
+                label: "Templates Hub",
+                href: "https://templates.langchain.com",
+              },
+              {
+                href: "https://smith.langchain.com/hub",
+                label: "LangChain Hub",
+              },
+              {
+                href: "https://js.langchain.com",
+                label: "JS/TS Docs",
+              },
+            ]
           },
           {
-            to: "https://smith.langchain.com",
-            label: "LangSmith",
-            position: "right",
-          },
-          {
-            to: "https://js.langchain.com/docs",
-            label: "JS/TS Docs",
+            href: "https://chat.langchain.com",
+            label: "Chat",
             position: "right",
           },
           // Please keep GitHub link to the right for consistency.

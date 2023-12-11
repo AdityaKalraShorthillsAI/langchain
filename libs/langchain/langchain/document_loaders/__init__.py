@@ -34,6 +34,9 @@ from langchain.document_loaders.arxiv import ArxivLoader
 from langchain.document_loaders.assemblyai import AssemblyAIAudioTranscriptLoader
 from langchain.document_loaders.async_html import AsyncHtmlLoader
 from langchain.document_loaders.azlyrics import AZLyricsLoader
+from langchain.document_loaders.azure_ai_data import (
+    AzureAIDataLoader,
+)
 from langchain.document_loaders.azure_blob_storage_container import (
     AzureBlobStorageContainerLoader,
 )
@@ -67,6 +70,7 @@ from langchain.document_loaders.diffbot import DiffbotLoader
 from langchain.document_loaders.directory import DirectoryLoader
 from langchain.document_loaders.discord import DiscordChatLoader
 from langchain.document_loaders.docugami import DocugamiLoader
+from langchain.document_loaders.docusaurus import DocusaurusLoader
 from langchain.document_loaders.dropbox import DropboxLoader
 from langchain.document_loaders.duckdb_loader import DuckDBLoader
 from langchain.document_loaders.email import (
@@ -87,6 +91,7 @@ from langchain.document_loaders.geodataframe import GeoDataFrameLoader
 from langchain.document_loaders.git import GitLoader
 from langchain.document_loaders.gitbook import GitbookLoader
 from langchain.document_loaders.github import GitHubIssuesLoader
+from langchain.document_loaders.google_speech_to_text import GoogleSpeechToTextLoader
 from langchain.document_loaders.googledrive import GoogleDriveLoader
 from langchain.document_loaders.gutenberg import GutenbergLoader
 from langchain.document_loaders.hn import HNLoader
@@ -100,6 +105,7 @@ from langchain.document_loaders.imsdb import IMSDbLoader
 from langchain.document_loaders.iugu import IuguLoader
 from langchain.document_loaders.joplin import JoplinLoader
 from langchain.document_loaders.json_loader import JSONLoader
+from langchain.document_loaders.lakefs import LakeFSLoader
 from langchain.document_loaders.larksuite import LarkSuiteDocLoader
 from langchain.document_loaders.markdown import UnstructuredMarkdownLoader
 from langchain.document_loaders.mastodon import MastodonTootsLoader
@@ -223,6 +229,7 @@ __all__ = [
     "ArxivLoader",
     "AssemblyAIAudioTranscriptLoader",
     "AsyncHtmlLoader",
+    "AzureAIDataLoader",
     "AzureBlobStorageContainerLoader",
     "AzureBlobStorageFileLoader",
     "BSHTMLLoader",
@@ -248,6 +255,7 @@ __all__ = [
     "DirectoryLoader",
     "DiscordChatLoader",
     "DocugamiLoader",
+    "DocusaurusLoader",
     "Docx2txtLoader",
     "DropboxLoader",
     "DuckDBLoader",
@@ -267,6 +275,7 @@ __all__ = [
     "GitbookLoader",
     "GoogleApiClient",
     "GoogleApiYoutubeLoader",
+    "GoogleSpeechToTextLoader",
     "GoogleDriveLoader",
     "GutenbergLoader",
     "HNLoader",
@@ -278,6 +287,7 @@ __all__ = [
     "JSONLoader",
     "JoplinLoader",
     "LarkSuiteDocLoader",
+    "LakeFSLoader",
     "MHTMLLoader",
     "MWDumpLoader",
     "MastodonTootsLoader",
